@@ -1,1 +1,2 @@
 this is first line in feature
+this is 2nd line from feature
