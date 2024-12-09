@@ -1,0 +1,26 @@
+name: Simple Build Workflow
+
+on:
+  push:
+    branches:
+      - master  # Trigger on pushes to the 'master' branch
+  pull_request:
+    branches:
+      - master  # Trigger on pull requests targeting the 'master' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Display repository contents
+      - name: List Repository Files
+        run: ls -la
+
+      # Step 3: Add a custom script (if needed)
+      - name: Display Message
+        run: echo "Build completed! Repository contains plain text files."
