@@ -18,6 +18,4 @@ jobs:
           chmod +x scripts/sample-script.sh
           ./scripts/sample-script.sh
 
-      - name: Verify output
-        run: |
-          cat example-directory/message.txt
+     
