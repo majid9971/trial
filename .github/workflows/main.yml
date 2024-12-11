@@ -1,26 +1,23 @@
-name: Simple Build Workflow
+name: POC 2: Run Script
 
 on:
   push:
     branches:
-      - master  # Trigger on pushes to the 'master' branch
-  pull_request:
-    branches:
-      - master  # Trigger on pull requests targeting the 'master' branch
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Display repository contents
-      - name: List Repository Files
-        run: ls -la
+      - name: Run custom script
+        run: |
+          chmod +x scripts/sample-script.sh
+          ./scripts/sample-script.sh
 
-      # Step 3: Add a custom script (if needed)
-      - name: Display Message
-        run: echo "Build completed! Repository contains plain text files."
+      - name: Verify output
+        run: |
+          cat example-directory/message.txt
