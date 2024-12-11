@@ -1,4 +1,4 @@
-name: POC 2: Run Script
+name: POC 2 Run Script
 
 on:
   push:
