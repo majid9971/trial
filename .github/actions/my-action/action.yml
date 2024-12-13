@@ -1,0 +1,15 @@
+# .github/actions/my-action/action.yml
+name: "Greet Action"
+description: "A custom GitHub Action to greet the user."
+author: "Your Name"
+inputs:
+  name:
+    description: "The name of the user to greet."
+    required: true
+    default: "World"
+outputs:
+  name_length:
+    description: "The length of the name provided."
+runs:
+  using: "node16"  # Specify the runtime
+  main: "index.js" # Main script for the action
