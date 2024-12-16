@@ -1,34 +1,22 @@
-# .github/workflows/test.yml
-name: Test Custom Action
+name: Use Custom Action
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  test-action:
+  run-custom-action:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout code
+      # Step 1: Checkout the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Step 2: Use the custom action
+      - name: Greet User
+        uses: majid9971/custom-action-demo/.github/actions/my-action@v1.0.0  # Replace with your repo and release tag
         with:
-          node-version: 16  # Specify the version of Node.js you need
-
-      # Step 3: Install dependencies for the action
-      - name: Install action dependencies
-        run: |
-          cd .github/actions/my-action
-          npm install
-
-      # Step 4: Run the custom action
-      - name: Run custom action
-        uses: ./.github/actions/my-action
-        with:
-          name: "GitHub User"
+          name: "Another User"  # Input parameter for the action
