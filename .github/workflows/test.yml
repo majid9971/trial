@@ -17,6 +17,6 @@ jobs:
 
       # Step 2: Use the custom action
       - name: Greet User
-        uses: majid9971/GreetAction/.github/actions/my-action@v1.0.1  # Replace with your repo and release tag
+        uses: majid9971/GreetAction/.github/actions/my-action@v1.0.0  # Replace with your repo and release tag
         with:
           name: "Another User"  # Input parameter for the action
