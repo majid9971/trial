@@ -3,7 +3,7 @@ name: Use Custom Action
 on:
   push:
     branches:
-      - master
+      - master  # You can change this to your desired branch
   pull_request:
 
 jobs:
@@ -11,18 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
+      # Step 1: Checkout the repository (this is required to use any action)
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # This will checkout your trial repository
 
-      # Step 2: Install dependencies for the custom action
-      - name: Install dependencies for my-action
-        run: |
-          cd .github/actions/my-action
-          npm install
-
-      # Step 3: Use the custom action
+      # Step 2: Use the custom action (GreetAction)
       - name: Greet User
-        uses: ./.github/actions/my-action
+        uses: majid9971/GreetAction/.github/actions/my-action@v1.0.3  # Replace with your repo and release tag
         with:
           name: "Another User"  # Input parameter for the action
