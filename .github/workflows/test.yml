@@ -15,8 +15,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Use the custom action
+      # Step 2: Install dependencies for the custom action
+      - name: Install dependencies for my-action
+        run: |
+          cd .github/actions/my-action
+          npm install
+
+      # Step 3: Use the custom action
       - name: Greet User
-        uses: majid9971/GreetAction/.github/actions/my-action@v1.0.3  # Replace with your repo and release tag
+        uses: ./.github/actions/my-action
         with:
           name: "Another User"  # Input parameter for the action
